@@ -4,13 +4,7 @@ from tkinter import *
 import tkinter.messagebox
 from RSA import *
 
-'''
-    16271120
-    马天波
-    RSA密码实验
-'''
-
-def mtb_jiami():
+def jiami():
     if P.get()=='' or Q.get()=='' or N.get()=='':
         tkinter.messagebox.showerror('错误','没有生成密钥')
         raise SystemError('没有生成密钥')
@@ -29,7 +23,7 @@ def mtb_jiami():
     mw2.insert('1.0',miwen)
 
 #解密函数
-def mtb_jiemi():
+def jiemi():
     if P.get()=='' or Q.get()=='' or N.get()=='':
         tkinter.messagebox.showerror('错误','没有生成密钥')
         raise SystemError('没有生成密钥')
@@ -110,8 +104,8 @@ mw1 = Text(root,width=40,height=10)
 mw1.place(x=15,y=60)
 mw2 = Text(root,width=40,height=10)
 mw2.place(x=15,y=235)
-Button(root,text="加密",width=20,height =2,command=mtb_jiami).place(x=360,y=320)
-Button(root,text="解密",width=20,height =2,command=mtb_jiemi).place(x=550,y=320)
+Button(root,text="加密",width=20,height =2,command=jiami).place(x=360,y=320)
+Button(root,text="解密",width=20,height =2,command=jiemi).place(x=550,y=320)
 Button(root,text="清空",width=20,height = 2,command=qingkong).place(x=550,y=250)
 Button(root,text='随机生成密钥',width=20,height=2,command=rand).place(x=360,y=250)
 root.mainloop()
