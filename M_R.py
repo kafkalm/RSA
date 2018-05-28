@@ -19,13 +19,18 @@ def n_p_mod(n,p,N):
 #单次Miller-Rabin素性检测 a in [2,n-1] n为待检测的数
 def MillerRabinKnl(a,n):
     p = n-1
-    s = math.floor(math.log(p,2))
-    d = 1
-    while s>0:
-        d = p // 2**s   #整除
-        if p == d*2**s :
-            break
-        s = s - 1
+    p = bin(p).replace('0b','')
+    p_2 = p[::-1]
+    s = p_2.index('1')
+    d = p[0:len(p)-s]
+    d = int(d,2)
+    # s = math.floor(math.log(p,2))
+    # d = 1
+    # while s>0:
+    #     d = p // 2**s   #整除
+    #     if p == d*2**s :
+    #         break
+    #     s = s - 1
     x = n_p_mod(a,d,n)  #求a^d mod n
     for r in range(0,s):    # r in [0,s-1]
         y = n_p_mod(a,d*2**r,n) #求 a^(2^r*d) mod n
