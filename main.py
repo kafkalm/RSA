@@ -24,7 +24,7 @@ def mtb_jiami():
         raise SystemError('没有输入明文')
     num_e = int(e.get())
     num_N = int(n.get())
-    num_bit = int(Bit.get())
+    num_bit = int(Bit.get())//2
     miwen = Encrypt(mingwen,num_e,num_N,num_bit)
     mw2.insert('1.0',miwen)
 
@@ -43,7 +43,7 @@ def mtb_jiemi():
         raise SystemError('没有输入密文')
     num_d = int(d.get())
     num_N = int(n.get())
-    num_bit = int(Bit.get())
+    num_bit = int(Bit.get())//2
     mingwen = Decrypt(miwen,num_d,num_N,num_bit)
     mw1.insert('1.0',mingwen)
 
@@ -67,6 +67,7 @@ def rand():
     if num_bit != 128 and num_bit != 256 and num_bit !=512 and num_bit != 1024:
         tkinter.messagebox.showerror('错误','比特数应为128/256/512/1024')
         raise SystemError('比特数输入错误')
+    num_bit = num_bit //2
     a = RSA(num_bit)
     p.set(a[0])
     q.set(a[1])
